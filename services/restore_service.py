@@ -8,17 +8,15 @@ def restore_backup(config, filepath):
 
     command = [
         "pg_restore",
-        "-h",
-        config.LOCAL_DB_HOST,
-        "-p",
-        str(config.LOCAL_DB_PORT),
-        "-U",
-        config.LOCAL_DB_USER,
-        "-d",
-        config.LOCAL_DB_NAME,
+        "-h", config.LOCAL_DB_HOST,
+        "-p", str(config.LOCAL_DB_PORT),
+        "-U", config.LOCAL_DB_USER,
+        "-d", config.LOCAL_DB_NAME,
         "--clean",
         "--if-exists",
-        filepath,
+        "--no-owner",
+        "--role", config.LOCAL_DB_USER,
+        filepath
     ]
 
     result = subprocess.run(command, env=env)

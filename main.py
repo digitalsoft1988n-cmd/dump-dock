@@ -1,9 +1,9 @@
 import argparse
-from .storage.r2_client import R2Client
-from .core.utils import get_latest_key
-from .core.config import config
-from .services.backup_service import create_backup
-from .services.restore_service import restore_backup
+from storage.r2_client import R2Client
+from core.utils import get_latest_key
+from core.config import config
+from services.backup_service import create_backup
+from services.restore_service import restore_backup
 
 
 def main():
